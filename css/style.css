@@ -1,0 +1,553 @@
+/********** Template Stylesheet **********/
+
+/* Body and General Typography */
+body {
+    font-family: 'Heebo', sans-serif;
+    background-color: #212529; /* Dark background */
+    color: #F8F9FA; /* Light text color */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #F8F9FA;
+    font-weight: 600;
+}
+
+p {
+    color: #CED4DA;
+}
+
+a {
+    color: #00BFFF; /* Primary color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00A3D9;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+}
+
+.title {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: #00BFFF;
+    font-size: 2.5rem;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #00BFFF;
+    bottom: 0;
+    left: 0;
+}
+
+/* Spinner */
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar (Hero Section) */
+.sticky-lg-top {
+    top: 0;
+    height: 100vh;
+    position: sticky; /* Make it sticky for larger screens */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Make hero section unfixed in mobile mode */
+@media (max-width: 991.98px) { /* For devices smaller than 'lg' breakpoint */
+    .sticky-lg-top {
+        position: relative; /* Unfixed position */
+        height: auto; /* Auto height */
+        margin-bottom: 30px; /* Add some space below it */
+    }
+}
+
+.d-flex.flex-column.h-100 {
+    background-color: #343A40; /* Darker background for sidebar */
+    position: relative; /* For absolute positioning of elements inside */
+    z-index: 1; /* Ensure it's above other content if needed */
+}
+
+/* Profile Image Hover Effect - REMOVED */
+/*
+.d-flex.flex-column.h-100 img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.d-flex.flex-column.h-100 img:hover {
+    transform: scale(1.05);
+}
+*/
+
+/* Hero Image Top Margin - Set to 0 for all devices */
+.d-flex.flex-column.h-100 img {
+    margin-top: 0 !important; /* Ensure it touches the top */
+    margin-bottom: 4px; /* Keep existing bottom margin if any */
+}
+
+
+/* Typed Text */
+.typed-text-output {
+    min-height: 22px;
+}
+
+/* Hero Section Action Buttons (Download CV, Contact Me) */
+.hero-action-buttons .btn {
+    border: none; /* Remove default button border */
+    color: #00BFFF; /* Primary color for text */
+    padding: 15px 0; /* Adjust padding */
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.hero-action-buttons .btn:hover {
+    background-color: #00BFFF; /* Background on hover */
+    color: #FFFFFF; /* White text on hover */
+}
+
+.hero-action-buttons .border-end {
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle separator */
+}
+
+/* Social Media Buttons in Hero - Added more margin */
+.d-flex.justify-content-center.mt-auto.mb-3 .btn-square {
+    margin: 0 8px; /* Apply margin to social media buttons */
+    background-color: #6C757D;
+    border-color: #6C757D;
+    color: #F8F9FA;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.d-flex.justify-content-center.mt-auto.mb-3 .btn-square:hover {
+    background-color: #5A6268;
+    border-color: #5A6268;
+}
+
+
+/* About Section */
+.bg-secondary {
+    background-color: #343A40 !important;
+}
+
+/* Counter alignment and sizing */
+.d-flex.bg-secondary.p-4 {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.d-flex.bg-secondary.p-4:hover {
+    transform: translateY(-5px);
+}
+
+.d-flex.bg-secondary.p-4 h1 {
+    font-size: 3.5rem; /* Larger counter numbers */
+    margin-right: 15px; /* Spacing between number and text */
+}
+
+.d-flex.bg-secondary.p-4 .ps-3 {
+    text-align: left;
+}
+
+
+/* Skills Section */
+.skill .progress {
+    height: 5px;
+    border-radius: 0;
+    background-color: #495057; /* Darker background for empty progress bar */
+}
+
+.skill .progress-bar {
+    border-radius: 0;
+    width: 0%; /* Start at 0% for animation */
+    transition: width 1s ease-in-out; /* Smooth progression */
+}
+
+/* Experience Section */
+.border-light {
+    border-color: #CED4DA !important;
+}
+
+.border-start {
+    border-left: 2px solid #00BFFF !important; /* Highlight the border */
+    padding-left: 50px; /* Space for the line and arrow */
+}
+
+/* Container for each individual experience item */
+.border-start > .position-relative.mb-4 { /* Target direct children of border-start */
+    padding-left: 20px; /* Reverted padding to maintain arrow-text spacing */
+    padding-top: 0; /* Reset any default padding-top from Bootstrap */
+    margin-bottom: 35px !important; /* More space between entries */
+}
+
+/* Styling for the arrow icon in Experience section */
+.experience-arrow {
+    position: absolute;
+    left: -35px; /* Adjusted to further reduce space between arrow and vertical line */
+    transform: none; /* Ensure no additional transform interferes */
+    top: 0; /* Align to the top of the parent .position-relative */
+    color: #00BFFF; /* Color of the arrow icon */
+    font-size: 1.5rem; /* Slightly larger arrow for visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Fixed width for the arrow icon area */
+    height: 30px; /* Fixed height for the arrow icon area */
+    z-index: 2; /* Ensure it's above the border line */
+    /* Removed background-color and border-radius to make the line visible and touch the arrow */
+}
+
+/* Adjust text within experience item for better alignment */
+.border-start > .position-relative.mb-4 h5 {
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 5px; /* Reduce space below title */
+}
+
+.border-start > .position-relative.mb-4 p {
+    margin-bottom: 5px; /* Reduce space below paragraphs */
+}
+
+
+/* Services Section */
+.service-item {
+    background-color: #343A40;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    transition: .3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.service-item:hover {
+    background-color: #495057;
+    transform: translateY(-5px); /* Hover effect */
+}
+
+.service-item i {
+    color: #00BFFF;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-item:hover i {
+    color: #FFFFFF; /* Change icon color on hover */
+}
+
+/* Portfolio Section */
+#portfolio-flters .btn {
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+#portfolio-flters .btn.active {
+    background-color: #00BFFF;
+    border-color: #00BFFF;
+    color: #FFFFFF;
+}
+
+#portfolio-flters .btn:hover {
+    background-color: #00A3D9;
+    border-color: #00A3D9;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Gap between portfolio items */
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.portfolio-item img {
+    transition: .3s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the area */
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-btn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: .3s;
+}
+
+.portfolio-item:hover .portfolio-btn {
+    opacity: 1;
+}
+
+/* Styling for the plus icon in Portfolio section */
+.portfolio-btn a i {
+    color: #F8F9FA; /* White color */
+    font-size: 2rem; /* Standard plus sign size */
+    display: flex; /* Keep flex for centering */
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease-in-out; /* Add transition for hover */
+}
+
+.portfolio-btn a:hover i {
+    color: #00BFFF; /* Change color on hover */
+}
+
+
+/* Testimonial Section */
+.testimonial-carousel .owl-item {
+    padding: 20px; /* Add padding to prevent intersection */
+    background-color: #343A40;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* margin is handled by Owl Carousel's 'margin' option in JS for better control */
+}
+
+/* Ensure Owl Carousel items are displayed as blocks for proper sizing */
+.owl-carousel .owl-item {
+    display: block;
+}
+
+
+/* Contact Section */
+.form-floating label {
+    color: #ADB5BD;
+}
+
+.form-control.bg-secondary {
+    background-color: #495057 !important;
+    color: #F8F9FA;
+    border: 1px solid #6C757D;
+}
+
+.form-control.bg-secondary:focus {
+    border-color: #00BFFF;
+    box-shadow: none;
+}
+
+/* Newsletter Section Styling */
+.newsletter-section {
+    background-color: #2C3E50 !important; /* Dark background */
+    padding: 60px 20px; /* Ample padding */
+    border-radius: 8px; /* Rounded corners for the section */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    text-align: center; /* Center text content */
+}
+
+.newsletter-section h2 {
+    color: #FFFFFF;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.newsletter-section p {
+    color: #CED4DA;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Desktop styles for input group */
+.newsletter-section .input-group {
+    max-width: 700px; /* Max width for the input group on desktop */
+    margin: 0 auto; /* Center the input group */
+    display: flex; /* Ensure flex behavior for side-by-side on desktop */
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+}
+
+.newsletter-section .input-group .form-control {
+    background-color: #34495E !important;
+    color: #F8F9FA;
+    border: 1px solid #34495E; /* Match background for seamless look */
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    height: calc(1.5em + 0.75rem + 2px); /* Standard Bootstrap form-control height */
+    border-radius: 0.25rem 0 0 0.25rem; /* Rounded corners only on the left for input */
+    flex-grow: 1; /* Allow input to grow */
+}
+
+.newsletter-section .input-group .form-control::placeholder {
+    color: #B0BEC5;
+}
+
+.newsletter-section .input-group .form-control:focus {
+    border-color: #00BFFF;
+    box-shadow: 0 0 0 0.25rem rgba(0, 191, 255, 0.25);
+}
+
+.newsletter-section .input-group .btn-primary {
+    background-color: #00BFFF;
+    border-color: #00BFFF;
+    color: #FFFFFF;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    border-radius: 0 0.25rem 0.25rem 0; /* Rounded corners only on the right for button */
+    flex-shrink: 0; /* Prevent button from shrinking */
+    margin-left: -1px; /* Overlap border to make them touch */
+    height: calc(1.5em + 0.75rem + 2px); /* Ensure consistent height with input */
+    text-align: center; /* Center the text within the button */
+    display: flex; /* Ensure flex for centering content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+.newsletter-section .input-group .btn-primary:hover {
+    background-color: #00A3D9;
+    border-color: #00A3D9;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for the input group on smaller screens */
+@media (max-width: 767.98px) { /* For small devices (phones and tablets) */
+    .newsletter-section .input-group {
+        flex-direction: column; /* Stack input and button vertically */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+    .newsletter-section .input-group .form-control,
+    .newsletter-section .input-group .btn-primary {
+        width: 100%; /* Full width when stacked */
+        border-radius: 0.25rem !important; /* Ensure rounded corners for individual elements when stacked */
+        margin-left: 0; /* Remove negative margin when stacked */
+    }
+    .newsletter-section .input-group .form-control {
+        margin-bottom: 10px; /* Space between stacked input and button */
+    }
+    .newsletter-section .input-group .btn-primary {
+        transform: none; /* Remove hover transform when stacked */
+    }
+}
+
+
+/* Footer Section */
+.bg-secondary.text-light.text-center.p-5 {
+    border-top: 5px solid #00BFFF; /* Add a top border for design */
+    border-radius: 8px 8px 0 0;
+}
+
+.footer-social-links a {
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 30px;
+    bottom: 30px;
+    z-index: 99;
+    background-color: #00BFFF;
+    color: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: .5s;
+}
+
+.back-to-top:hover {
+    background-color: #00A3D9;
+    color: #FFFFFF;
+}
+
+/* General Responsive Adjustments (kept from previous versions) */
+@media (max-width: 767.98px) { /* Small devices (phones) */
+    section {
+        padding: 40px 0;
+    }
+    .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .d-flex.bg-secondary.p-4 h1 {
+        font-size: 2.5rem;
+    }
+    .d-flex.bg-secondary.p-4 .ps-3 {
+        font-size: 0.9rem;
+    }
+    .service-item {
+        padding: 20px;
+    }
+    .service-item i {
+        font-size: 2.5rem;
+    }
+    .portfolio-container {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+
+    /* Reduce padding/margin for hero container on mobile */
+    .col-lg-4.sticky-lg-top {
+        padding-top: 20px; /* Reduce top padding */
+        padding-bottom: 20px; /* Reduce bottom padding */
+    }
+
+    /* Reduce margin for social icons on mobile */
+    .d-flex.justify-content-center.mt-auto.mb-3 {
+        margin-bottom: 15px !important; /* Reduce bottom margin */
+        margin-top: 15px !important; /* Reduce top margin */
+    }
+
+    /* Add margin between counter boxes on mobile */
+    .row.g-4 > div[class*="col-"]:not(:last-child) {
+        margin-bottom: 20px; /* Add bottom margin to all but the last column in the row */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { /* Medium devices (tables) */
+    .d-flex.bg-secondary.p-4 h1 {
+        font-size: 3rem;
+    }
+    .d-flex.bg-secondary.p-4 .ps-3 {
+        font-size: 1rem;
+    }
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+}
