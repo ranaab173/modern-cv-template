@@ -35,4 +35,4 @@ A clean, responsive resume template for professionals, designed to impress both 
 
 
 ## 📜 License  
-MIT © [Rana Abubakar] - Free for personal and commercial use.  
+MIT © Rana Abubakar - Free for personal and commercial use.  
